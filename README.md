@@ -5,8 +5,9 @@ This is the [ComfyUI](https://github.com/comfyanonymous/ComfyUI) custom node tem
 ## Directory Structure
 ```
 Project-Name/
-├── .github/                # GA workflow for publishing the ComfyUI registry 
-├── example/                # Example workflows for your custom node
+├── .github/                # GA workflow for publishing the ComfyUI registry and CI 
+├── workflows/              # Example ComfyUI workflows for your custom node
+├── tests/                  # Test scripts for your custom node with pytest
 ├── modules/                # Your own modules for the custom node
 ├── .gitignore              # gitignore file 
 ├── __init__.py             # Map your custom node display names here 
@@ -37,19 +38,24 @@ If you wonder what ComfyUI registry is, please read:
 ### [requirements.txt](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/requirements.txt)
 This file contains the dependencies needed for your custom node. `torch` is already installed in the ComfyUI, so you only need to add "extra" dependencies here.
 
-### [examples/example-1.json](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/examples)
+### [workflows/example-1.json](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/workflows)
 This is optional, but it is recommended to put your ComfyUI workflow json file inside your project so users can easily understand how to use your custom node.
 
 ## Github Actions
 
 ### [publish-comfyui-registry.yml](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/.github/workflows/publish-comfyui-registry.yml)
 When you push into the `master` branch, this workflow will be triggered and publish your custom node to the ComfyUI registry, using your [pyproject.toml](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/pyproject.toml).
+The ComfyUI registry works as a backend for the ComfyUI Manager, which allows you to search for and install custom nodes from within the ComfyUI Manager.
 You have to register your "REGISTRY_ACCESS_TOKEN" in the Github Action Secrets which you can get from:
 - https://docs.comfy.org/registry/publishing#create-an-api-key-for-publishing
 
 After generating the repository from this template, uncomment the push to enable the workflow with auto trigger:
 
 https://github.com/jhj0517/ComfyUI-CustomNodes-Template/blob/6ae10a1d161933c5e3cff432e1c8bbc9396be954/.github/workflows/publish-comfyui-registry.yml#L4-L10
+
+### [ci.yml](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/.github/workflows/ci.yml)
+Very basic CI workflow that runs the `pytest`. It will run scripts in the `tests` directory with the `pytest` command.
+It will be triggered when you push/PR into the `master` branch.
 
 ## Github Issue & PR templates
 
