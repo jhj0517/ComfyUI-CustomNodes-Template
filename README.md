@@ -37,7 +37,7 @@ If you wonder what ComfyUI registry is, please read:
 ### [requirements.txt](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/requirements.txt)
 This file contains the dependencies needed for your custom node. `torch` is already installed in the ComfyUI, so you only need to add "extra" dependencies here.
 
-### [examples/example-1.json](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/examples)
+### [workflows/example-1.json](https://github.com/jhj0517/ComfyUI-CustomNodes-Template/tree/master/workflows)
 This is optional, but it is recommended to put your ComfyUI workflow json file inside your project so users can easily understand how to use your custom node.
 
 ## Github Actions
